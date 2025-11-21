@@ -31,7 +31,7 @@ API mendukung CRUD untuk produk dan user.
 ![Halaman put](gambar/put.png)
 
 ### Halaman post
-![Halaman post](gambar/login.png)
+![Halaman post](gambar/post.png)
 
 ### Halaman delete
 ![delete](gambar/delete.png)
