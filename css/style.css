@@ -1,0 +1,78 @@
+/* css/style.css */
+
+/* Palet Warna Ami Green Farm */
+:root {
+    --primary-green: #4CAF50; /* Hijau Utama */
+    --secondary-green: #8BC34A; /* Hijau Sekunder (lebih terang) */
+    --dark-green: #388E3C;    /* Hijau Gelap (untuk hover/footer) */
+    --bg-light: #F1F8E9;      /* Background Krem/Hijau Sangat Muda */
+    --text-dark: #212529;
+}
+
+body {
+    font-family: 'Poppins', sans-serif; /* Gunakan font yang estetik */
+    background-color: var(--bg-light);
+    color: var(--text-dark);
+}
+
+/* Navbar Styling */
+.navbar {
+    background-color: #ffffff !important; /* Navbar putih bersih */
+    border-bottom: 3px solid var(--primary-green);
+}
+.navbar-brand, .nav-link {
+    font-weight: 600;
+    color: var(--dark-green) !important;
+}
+.nav-link:hover {
+    color: var(--primary-green) !important;
+}
+
+/* Button Styling */
+.btn-farm {
+    background-color: var(--primary-green);
+    color: white;
+    border: none;
+    transition: background-color 0.3s;
+}
+.btn-farm:hover {
+    background-color: var(--dark-green);
+    color: white;
+}
+
+/* Card Styling (untuk Halaman Home) */
+.card-farm {
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+    background-color: white;
+}
+.card-farm:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Hero Section Styling */
+.hero-section {
+    background-color: var(--secondary-green);
+    color: white;
+    padding: 80px 0;
+    /* Tambahkan background image jika ada */
+    /* background: url('../img/greenhouse.jpg') no-repeat center center/cover; */
+    min-height: 400px;
+    display: flex;
+    align-items: center;
+}
+.hero-text h1 {
+    font-size: 3.5rem;
+    font-weight: 700;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+/* Footer Styling */
+footer {
+    background-color: var(--dark-green);
+    color: var(--bg-light);
+    padding: 20px 0;
+}

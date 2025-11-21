@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Katalog Produk | Ami Green Farm</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg">
+            <div class="container">
+                <a class="navbar-brand" href="index.html">🌿 Ami Green Farm</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.html">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="katalog.html">Katalog</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="about.html">Tentang Kami</a>
+                        </li>
+                     
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <section class="container py-5">
+            <h1 class="text-center text-dark-green mb-5">Daftar Produk Segar Kami</h1>
+            
+            <div class="row">
+                <div class="col-lg-3">
+                    <div class="card card-farm p-3 mb-4 sticky-top" style="top: 20px;">
+                        <h5 class="text-primary-green">Filter Produk</h5>
+                        <hr>
+                        <form id="filterForm">
+                            <div class="mb-3">
+                                <label class="form-label fw-bold">Jenis Sayuran</label>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="Daun" id="filterDaun" checked>
+                                    <label class="form-check-label" for="filterDaun">Sayuran Daun</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="Buah" id="filterBuah" checked>
+                                    <label class="form-check-label" for="filterBuah">Sayuran Buah</label>
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label fw-bold">Metode Tanam</label>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="Organik" id="filterOrganik" checked>
+                                    <label class="form-check-label" for="filterOrganik">Organik</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="Hidroponik" id="filterHidroponik" checked>
+                                    <label class="form-check-label" for="filterHidroponik">Hidroponik</label>
+                                </div>
+                            </div>
+                            <button type="button" class="btn btn-sm btn-outline-dark-green w-100">Terapkan Filter (Dummy)</button>
+                        </form>
+                    </div>
+                </div>
+
+                <div class="col-lg-9">
+                    <div class="row row-cols-1 row-cols-md-3 g-4" id="productGrid">
+                        <div class="col product-item" data-kategori="Daun" data-metode="Organik">
+                            <div class="card card-farm h-100">
+                                <img src="img/romaine.jpg" class="card-img-top" alt="Selada Romaine Organik">
+                                <div class="card-body">
+                                    <span class="badge bg-primary-green mb-2">Organik</span>
+                                    <h5 class="card-title text-dark-green">Selada Romaine</h5>
+                                    <p class="card-text fw-bold">Rp 18.000 / ikat</p>
+                                    <p class="card-text"><small class="text-muted">Kualitas renyah dan segar.</small></p>
+                                    <a href="detail.html?product_id=1" class="btn btn-sm btn-outline-farm w-100">Lihat Detail</a>
+                                    <button class="btn btn-sm btn-farm w-100 mt-2">Beli (Dummy)</button>
+                                    
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col product-item" data-kategori="Buah" data-metode="Hidroponik">
+                            <div class="card card-farm h-100">
+                                <img src="img/tomat.jpg" class="card-img-top" alt="Tomat Cherry Hidroponik">
+                                <div class="card-body">
+                                    <span class="badge bg-secondary-green mb-2">Hidroponik</span>
+                                    <h5 class="card-title text-dark-green">Tomat Cherry Manis</h5>
+                                    <p class="card-text fw-bold">Rp 25.000 / box</p>
+                                    <p class="card-text"><small class="text-muted">Manis, cocok untuk salad.</small></p>
+                                    <a href="detail.html?product_id=2" class="btn btn-sm btn-outline-farm w-100">Lihat Detail</a>
+                                    <button class="btn btn-sm btn-farm w-100 mt-2">Beli (Dummy)</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col product-item" data-kategori="Daun" data-metode="Organik">
+                            <div class="card card-farm h-100">
+                                <img src="img/bayam.jpg" class="card-img-top" alt="Bayam Merah Organik">
+                                <div class="card-body">
+                                    <span class="badge bg-primary-green mb-2">Organik</span>
+                                    <h5 class="card-title text-dark-green">Bayam</h5>
+                                    <p class="card-text fw-bold">Rp 15.000 / ikat</p>
+                                    <p class="card-text"><small class="text-muted">Kaya zat besi, warna alami.</small></p>
+                                    <a href="detail.html?product_id=3" class="btn btn-sm btn-outline-farm w-100">Lihat Detail</a>
+                                    <button class="btn btn-sm btn-farm w-100 mt-2">Beli (Dummy)</button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+    <footer class="text-center">
+        <div class="container">
+            <p class="mb-0">
+                &copy; Copyright by 23552011314_Fahmi Fauziah Nur Fadillah_23 CNS A
+            </p>
+            <p class="mt-2" style="font-size: 0.8rem;">
+                Ami Green Farm: Menyediakan sayuran organik dan hidroponik segar.
+            </p>
+        </div>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/script.js"></script> 
+</body>
+</html>

@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kumpulan Resep Sayuran | Ami Green Farm</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Google Fonts Poppins -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <!-- CSS Kustom Ami Green Farm -->
+    <link rel="stylesheet" href="css/style_farm.css">
+    <!-- Font Awesome untuk Icon (Opsional, tapi bagus untuk tampilan) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header>
+        <!-- NAVIGASI BAR -->
+        <nav class="navbar navbar-expand-lg sticky-top">
+            <div class="container">
+                <a class="navbar-brand" href="index.html">🌿 Ami Green Farm</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.html">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="katalog.html">Katalog</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="resep.html">Resep</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link btn btn-farm ms-lg-3 text-white" href="login.html">Login Anggota</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="container py-5">
+            <h1 class="text-center mb-2" style="color: var(--dark-green);">🥬 Inspirasi Resep Sayuran Segar</h1>
+            <p class="text-center lead text-muted mb-5">Temukan cara terbaik mengolah hasil panen Ami Green Farm!</p>
+            
+            <div class="row">
+                <!-- Sidebar Filter -->
+                <div class="col-lg-3">
+                    <div class="card filter-card p-4 mb-4 sticky-top" style="top: 20px;">
+                        <h5 style="color: var(--primary-green);"><i class="fas fa-filter me-2"></i>Saring Resep</h5>
+                        <hr>
+                        
+                        <!-- Pencarian Cepat -->
+                        <div class="mb-4">
+                            <label for="searchInput" class="form-label fw-bold small text-muted">Cari Nama / Deskripsi</label>
+                            <input type="text" class="form-control" id="searchInput" placeholder="Contoh: Tomat, Pecel...">
+                        </div>
+
+                        <form id="filterForm">
+                            <!-- Filter Kategori -->
+                            <div class="mb-4">
+                                <label class="form-label fw-bold small text-muted">Jenis Sayuran</label>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="Daun" name="kategori" id="filterDaun" checked>
+                                    <label class="form-check-label" for="filterDaun">Sayuran Daun (Bayam, Selada)</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="Buah" name="kategori" id="filterBuah" checked>
+                                    <label class="form-check-label" for="filterBuah">Sayuran Buah (Tomat, Mentimun)</label>
+                                </div>
+                                <!-- Tambahkan kategori lain jika perlu -->
+                            </div>
+                            
+                            <!-- Filter Kesulitan -->
+                            <div class="mb-3">
+                                <label class="form-label fw-bold small text-muted">Tingkat Kesulitan</label>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="Mudah" name="kesulitan" id="filterMudah" checked>
+                                    <label class="form-check-label" for="filterMudah">Mudah</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="Sedang" name="kesulitan" id="filterSedang" checked>
+                                    <label class="form-check-label" for="filterSedang">Sedang</label>
+                                </div>
+                            </div>
+                            
+                            <button type="button" onclick="filterRecipes()" class="btn btn-sm btn-outline-farm w-100 mt-2"><i class="fas fa-check-circle me-1"></i> Terapkan Filter</button>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- Grid Resep -->
+                <div class="col-lg-9">
+                    <div class="row g-4" id="resepGrid">
+                        <!-- Kartu Resep akan diisi oleh JavaScript (renderRecipes) -->
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <!-- Modal Detail Resep -->
+    <div class="modal fade" id="recipeModal" tabindex="-1" aria-labelledby="recipeModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content">
+                <div class="modal-header" style="background-color: var(--light-green);">
+                    <h5 class="modal-title" id="modalRecipeTitle" style="color: var(--dark-green);">Nama Resep</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <img id="modalRecipeImage" src="" alt="Gambar Resep" class="img-fluid rounded mb-3">
+                    
+                    <p id="modalRecipeDescription" class="lead text-muted"></p>
+                    <div class="row mb-4">
+                        <div class="col-6">
+                            <span class="badge bg-secondary-green">⏱️ Waktu: <span id="modalRecipeTime"></span></span>
+                        </div>
+                        <div class="col-6 text-end">
+                            <span class="badge badge-complexity">🌟 Kesulitan: <span id="modalRecipeDifficulty"></span></span>
+                        </div>
+                    </div>
+
+                    <h6 style="color: var(--primary-green);"><i class="fas fa-carrot me-2"></i>Bahan-Bahan:</h6>
+                    <ul id="modalRecipeIngredients" class="list-unstyled ms-3 mb-4">
+                        <!-- Bahan-bahan akan diisi JS -->
+                    </ul>
+
+                    <h6 style="color: var(--primary-green);"><i class="fas fa-clipboard-list me-2"></i>Langkah Memasak:</h6>
+                    <ol id="modalRecipeSteps" class="ms-3">
+                        <!-- Langkah-langkah akan diisi JS -->
+                    </ol>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-outline-farm" data-bs-dismiss="modal">Tutup</button>
+                    <a href="katalog.html" class="btn btn-farm">Beli Bahan Segar &rarr;</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="text-center">
+        <div class="container">
+            <p class="mb-0">
+                &copy; Copyright by 23552011314_Fahmi Fauziah Nur Fadillah_23 CNS A
+            </p>
+            <p class="mt-2" style="font-size: 0.8rem;">
+                Ami Green Farm: Inspirasi resep sehat dari kebun terbaik.
+            </p>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- JS Kustom Resep -->
+    <script src="js/resep.js"></script> 
+</body>
+</html>
